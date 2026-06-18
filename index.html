@@ -1,438 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
 
-  <!-- Meta -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
 
-  <!-- Título -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>Painel Frota</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="./css/main.css">
+
+  <link
+    rel="stylesheet"
+    href="./assets/css/variables.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./assets/css/layout.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./assets/css/tables.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./assets/css/status.css"
+  >
 
 </head>
 
-
-
-
-
-
-
-
-
 <body>
 
-<!-- Áudio -->
-<audio id="beep"></audio>
+  <!-- ================= HEADER ================= -->
 
-<!-- Cabeçalho -->
-<header class="topbar">
-</header>
+  <header class="topbar">
 
-<!-- Conteúdo -->
-<main id="app">
+    <div class="left">
 
-    <!-- Card Veículos -->
-    <section class="card">
-    </section>
+      <img
+        src="./assets/images/logo.png"
+        class="logo"
+        alt="Logo"
+      >
 
-    <!-- Card Motoristas -->
-    <section class="card">
-    </section>
-
-    <!-- Painel -->
-    <section class="card">
-    </section>
-
-    <!-- Agenda -->
-    <section class="card">
-    </section>
-
-    <!-- Serviço Social -->
-    <section class="card">
-    </section>
-
-</main>
-
-<!-- Scripts -->
-<script type="module" src="js/app.js"></script>
-
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Painel - Frota (GViz)</title>
-
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
-
-<style>
-:root{
-  --bg:#071029;
-  --card:#2a71e8;
-  --muted:#f7f9fa;
-  --accent:#00eaff;
-}
-
-html,body{
-  height:100%;
-  margin:0;
-  background:var(--bg);
-  color:#fff;
-  font-family:Arial;
-}
-
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 20px;
-  background:#020617;
-  border-bottom:1px solid rgba(255,255,255,0.03);
-}
-
-header img{height:66px}
-header .title{font-size:20px;font-weight:700;color:var(--accent)}
-header .clock{font-size:18px;color:var(--muted)}
-
-main{
-  padding:12px;
-  display:grid;
-  grid-template-rows:1fr 1fr 1fr;
-  gap:12px;
-  height:calc(100vh - 80px);
-  box-sizing:border-box;
-}
-
-.card{
-  background:var(--card);
-  border-radius:10px;
-  padding:10px;
-  overflow:auto;
-}
-
-.card h2{
-  margin:0 0 8px;
-  text-align:center;
-  color:var(--accent);
-  font-size:18px;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  table-layout:fixed;
-  font-size:14px;
-}
-
-th,td{
-  padding:8px;
-  text-align:left;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-thead th{
-  position:sticky;
-  top:0;
-  background:rgba(255,255,255,0.05);
-}
-  /* ícone atendido */
-  td.status-icon{
-  icon-align:center;
-  font-size:20px;
-  font-weight:bold;
-  color:#00ff9c;
-}
-
-
-tr.status-andamento{background: rgba(255,165,0,0.06)}
-tr.status-concluido{background: rgba(0,200,120,0.06)}
-tr.status-atendido{background: rgba(0,160,255,0.18);}
-
-
-@keyframes piscarCancelado{
-  0%{opacity:1}
-  50%{opacity:.3}
-  100%{opacity:1}
-}
-
-tr.status-cancelado{
-  background: rgba(155,17,17,0.18);
-  text-decoration:line-through;
-  animation:piscarCancelado 5s infinite;
-}
-
-.small{
-  font-size:12px;
-  color:var(--muted);
-  text-align:center;
-  margin-top:6px;
-}
-</style>
-</head>
-
-<body>
-<header>
-  <img src="logo.png" onerror="this.style.display='none'">
-  <div class="title">MOVIMENTAÇÃO DIÁRIA</div>
-  <div class="clock" id="clock"></div>
-</header>
-
-<main>
-  <section class="card">
-    <h2>PAINEL</h2>
-    <div id="painel">Carregando...</div>
-  </section>
-
-  <section class="card">
-    <h2>AGENDA DO DIA</h2>
-    <div id="agenda">Carregando...</div>
-  </section>
-
-  <section class="card">
-    <h2 id="carousel-title">AGENDA SERVIÇO SOCIAL</h2>
-    <div id="carousel">
-      <div id="carousel-social">Carregando...</div>
-      <div id="carousel-avisos" style="display:none">Carregando...</div>
     </div>
-  </section>
-</main>
 
-<div class="small">Atualização automática a cada 60s • Fonte: Google Sheets</div>
+    <div class="center">
 
-<script>
-const SHEET_ID = "1Ch3AjQ0MDo4WuQWFDR3r8nZrHb4yQkSLOtT5_QgxT6E";
-const TAB_PAINEL = "PAINEL";
-const TAB_AGENDA = "AGENDA DO DIA";
-const TAB_SS = "AGENDA SERVIÇO SOCIAL";
-const TAB_AVISOS = "AVISOS";
+      <h1 class="title">
+        MOVIMENTAÇÃO DIÁRIA
+      </h1>
 
-/* relógio */
-function updateClock(){
-  const n = new Date();
-  document.getElementById("clock").innerText =
-    n.toLocaleDateString("pt-BR") + " — " +
-    n.toLocaleTimeString("pt-BR");
-}
-setInterval(updateClock,1000); updateClock();
+    </div>
 
-/* helpers */
-function parseGvizText(text){
-  return JSON.parse(text.substring(text.indexOf("{"), text.lastIndexOf("}")+1));
-}
-function escapeHtml(s){
-  return String(s ?? "").replace(/[&<>]/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;" }[m]));
-}
+    <div class="right">
 
-  /* ================= FORMATADOR UNIVERSAL ================= */
-function formatCell(cell){
-  if (cell === null || cell === undefined) return "";
+      <div id="clock"></div>
 
-  // objeto GViz
-  if (typeof cell === "object"){
-    if (cell.f !== undefined && cell.f !== null) return String(cell.f);
-    if (cell.v !== undefined && cell.v !== null) return formatCell(cell.v);
-    return "";
-  }
+      <div class="actions">
 
-  const s = String(cell).trim();
+        <button id="toggle-audio">
+          🔊 SOM ON
+        </button>
 
-  // Date(YYYY,MM,DD[,HH,MM,SS])
-  const d = s.match(/^Date\((\d+),(\d+),(\d+)(?:,(\d+),(\d+),?(\d+)?)?\)$/);
-  if (d){
-    const ano = +d[1];
-    const mes = +d[2] + 1;
-    const dia = +d[3];
-    const hh  = d[4] !== undefined ? +d[4] : null;
-    const mm  = d[5] !== undefined ? +d[5] : null;
+        <button id="toggle-fullscreen">
+          ⛶ TELA CHEIA
+        </button>
 
-    // hora pura (Sheets usa 1899)
-    if (ano === 1899){
-      return `${String(hh).padStart(2,"0")}:${String(mm).padStart(2,"0")}`;
-    }
+      </div>
 
-    if (hh !== null){
-      return `${String(dia).padStart(2,"0")}/${String(mes).padStart(2,"0")}/${ano} ` +
-             `${String(hh).padStart(2,"0")}:${String(mm).padStart(2,"0")}`;
-    }
+    </div>
 
-    return `${String(dia).padStart(2,"0")}/${String(mes).padStart(2,"0")}/${ano}`;
-  }
+  </header>
 
-  return s;
-}
+  <!-- ================= DASHBOARD ================= -->
 
+  <main id="app">
 
+    <!--
+      Todo conteúdo será renderizado
+      dinamicamente pelo app.js
+    -->
 
-/* render */
-function renderTable(containerId, g){
-  const container = document.getElementById(containerId);
+  </main>
 
-  // 🔒 validação total do GViz
-  if (!g || !g.table || !Array.isArray(g.table.cols)){
-    container.innerHTML =
-      "<div style='text-align:center;opacity:.7'>Sem dados</div>";
-    return;
-  }
+  <!-- ================= AUDIO ================= -->
 
-  const cols = g.table.cols.map(c => c.label || "");
-  const rows = Array.isArray(g.table.rows) ? g.table.rows : [];
+  <audio
+    id="beep"
+    preload="auto"
+  >
+    <source
+      src="./assets/audio/alerta.mp3"
+      type="audio/mpeg"
+    >
+  </audio>
 
-  let html = "<table><thead><tr>";
-  cols.forEach(h => html += `<th>${escapeHtml(h)}</th>`);
-  html += "</tr></thead><tbody>";
+  <!-- ================= CONFIG ================= -->
 
-  rows.forEach(r => {
-    const cells = Array.isArray(r.c) ? r.c : [];
+  <script
+    type="module"
+    src="./js/config/sheets.js"
+  ></script>
 
-    // status seguro
-    let statusText = "";
-    if (cells.length){
-      const last = cells[cells.length - 1];
-      statusText = String(last?.f ?? last?.v ?? "").toLowerCase();
-    }
+  <script
+    type="module"
+    src="./js/config/tabs.js"
+  ></script>
 
-    let cls = "";
-if (statusText.includes("cancelado")) {
-  cls = "status-cancelado";
-}
-else if (
-  (containerId === "agenda" || containerId === "carousel-social") &&
-  statusText.includes("atendido")
-) {
-  cls = "status-atendido";
-}
-else if (statusText.includes("concluido")) {
-  cls = "status-concluido";
-}
-else if (statusText.includes("andamento")) {
-  cls = "status-andamento";
-}
+  <script
+    type="module"
+    src="./js/config/status.js"
+  ></script>
 
+  <!-- ================= API ================= -->
 
-    html += `<tr class="${cls}">`;
+  <script
+    type="module"
+    src="./js/api/sheetsApi.js"
+  ></script>
 
-   for (let i = 0; i < cols.length; i++){
-  const isStatusCol = (i === cols.length - 1);
-  const rawText = formatCell(cells[i]);
-  const lower = rawText.toLowerCase();
+  <!-- ================= SERVICES ================= -->
 
-  // ATENDIDO → ✔ (somente nas agendas)
-  if (
-    isStatusCol &&
-    (containerId === "agenda" || containerId === "carousel-social") &&
-    lower.includes("atendido")
-  ){
-    html += `<td class="status-icon">✔</td>`;
-  }
-  else {
-    html += `<td>${escapeHtml(rawText)}</td>`;
-  }
-}
+  <script
+    type="module"
+    src="./js/services/painelService.js"
+  ></script>
 
-    html += "</tr>";
-  });
+  <script
+    type="module"
+    src="./js/services/agendaService.js"
+  ></script>
 
-  html += "</tbody></table>";
-  container.innerHTML = html;
-}
+  <script
+    type="module"
+    src="./js/services/veiculosService.js"
+  ></script>
 
+  <script
+    type="module"
+    src="./js/services/motoristasService.js"
+  ></script>
 
+  <!-- ================= COMPONENTS ================= -->
 
+  <script
+    type="module"
+    src="./js/components/Table.js"
+  ></script>
 
-/* fetch */
-async function fetchSheet(tab){
-  const url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(tab)}&tqx=out:json&nocache=${Date.now()}`;
-  const r=await fetch(url,{cache:"no-store"});
-  return parseGvizText(await r.text());
-}
+  <script
+    type="module"
+    src="./js/components/Card.js"
+  ></script>
 
-/* carrossel */
-let idx=0;
-function toggleCarousel(){
-  const ss=document.getElementById("carousel-social");
-  const av=document.getElementById("carousel-avisos");
-  const t=document.getElementById("carousel-title");
+  <script
+    type="module"
+    src="./js/components/VeiculosTable.js"
+  ></script>
 
-  if(idx===0){
-    ss.style.display="block"; av.style.display="none";
-    t.innerText="AGENDA SERVIÇO SOCIAL";
-  }else{
-    ss.style.display="none"; av.style.display="block";
-    t.innerText="AVISOS";
-  }
-  idx=(idx+1)%2;
-}
+  <script
+    type="module"
+    src="./js/components/MotoristasTable.js"
+  ></script>
 
-/* load */
-async function loadAll(){
-  try{
-    const [p,a,s,v] = await Promise.all([
-      fetchSheet(TAB_PAINEL),
-      fetchSheet(TAB_AGENDA),
-      fetchSheet(TAB_SS),
-      fetchSheet(TAB_AVISOS)
-    ]);
+  <!-- ================= UTILS ================= -->
 
-    renderTable("painel", p);
-    renderTable("agenda", a);
-    renderTable("carousel-social", s);
-    renderTable("carousel-avisos", v);
+  <script
+    type="module"
+    src="./js/utils/date.js"
+  ></script>
 
-  } catch(err){
-    console.error("Erro ao carregar GViz:", err);
-  }
-}
+  <script
+    type="module"
+    src="./js/utils/helpers.js"
+  ></script>
 
+  <script
+    type="module"
+    src="./js/utils/status.js"
+  ></script>
 
-loadAll();
-setInterval(toggleCarousel,6000);
-</script>
+  <!-- ================= APP ================= -->
+
+  <script
+    type="module"
+    src="./js/app.js"
+  ></script>
+
 </body>
+
 </html>

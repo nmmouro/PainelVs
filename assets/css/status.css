@@ -1,0 +1,254 @@
+.painel .status-andamento td,
+.agenda .status-andamento td,
+.social .status-andamento td{
+  background:rgba(210,150,80);
+  color:#fff;
+}
+
+.painel .status-cancelado td,
+.agenda .status-cancelado td,
+.social .status-cancelado td{
+  background:rgba(255,77,77,.10);
+  color:#fff;
+}
+
+.painel .status-concluido td,
+.agenda .status-concluido td,
+.social .status-concluido td{
+  background:#32CD32;
+  color:#fff;
+}
+
+.painel .status-atendido td,
+.agenda .status-atendido td,
+.social .status-atendido td{
+  background:rgba(0,255,156,.10);
+  color:#fff;
+}
+
+.painel .status-manutencao td,
+.agenda .status-manutencao td,
+.social .status-manutencao td{
+  background:rgba(110,180,255);
+  color:#fff;
+}
+
+.painel .status-viagem td,
+.agenda .status-viagem td,
+.social .status-viagem td{
+  background:rgba(210,140,255);
+  color:#fff;
+}
+
+.status-icon{
+  font-size:24px;
+  font-weight:700;
+  text-align:center;
+}
+
+.livre{
+  color:#00ff9c;
+  font-weight:700;
+}
+
+.ocupado{
+  color:#ff4d4d;
+  font-weight:700;
+}
+
+.manutencao{
+  color:#4da6ff;
+  font-weight:700;
+}
+
+.viagem{
+  color:#d66bff;
+  font-weight:700;
+}
+
+.andamento{
+  background:rgba(255,77,77,.15);
+  color:var(--red);
+}
+
+
+.topbar{
+
+  display:grid;
+
+  grid-template-columns:
+    180px 1fr 260px;
+
+  gap:16px;
+
+  align-items:center;
+
+  padding:14px 20px;
+
+  background:#020617;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.1);
+}
+
+/* LEFT */
+
+.left{
+  display:flex;
+  align-items:center;
+}
+
+.logo{
+  height:65px;
+  object-fit:contain;
+}
+
+/* CENTER */
+
+.center{
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+}
+
+.title{
+
+  font-size:30px;
+  font-weight:700;
+
+  letter-spacing:1px;
+}
+
+
+.right{
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:flex-end;
+
+  gap:10px;
+}
+
+#clock{
+
+  font-size:24px;
+  font-weight:700;
+
+  color:var(--muted);
+}
+
+.actions{
+
+  display:flex;
+  gap:10px;
+}
+
+button{
+
+  border:none;
+  border-radius:10px;
+
+  padding:8px 14px;
+
+  cursor:pointer;
+
+  font-weight:700;
+
+  transition:.2s;
+}
+
+button:hover{
+  transform:scale(1.03);
+}
+
+/* ================= BUTTON STATES ================= */
+
+button.off{
+
+  background:#ff4d4d;
+
+  color:#ffffff;
+
+  box-shadow:
+    0 0 10px rgba(255,77,77,.5);
+}
+
+
+
+.card{
+
+  background:var(--card);
+
+  border-radius:16px;
+
+  overflow:auto;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 4px 20px rgba(0,0,0,.35);
+}
+
+.card h2{
+
+  text-align:center;
+
+  padding:10px;
+
+  font-size:20px;
+}
+  
+  .dual-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+
+    max-height:260px;
+  overflow-y:auto;
+}
+
+/* ================= TABLE ================= */
+
+table{
+
+  width:100%;
+
+  border-collapse:collapse;
+}
+
+thead th{
+
+  position:sticky;
+  top:0;
+
+  background:var(--header);
+
+  padding:10px;
+
+  border:
+    1px solid var(--border);
+
+  font-size:16px;
+}
+
+tbody td{
+
+  padding:10px;
+
+  border:
+    1px solid var(--border);
+
+  background:var(--table);
+
+  text-align:center;
+  font-size:16px;
+}
+
+tbody tr:nth-child(even) td{
+  background:var(--table-alt);
+}

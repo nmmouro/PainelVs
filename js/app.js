@@ -1,32 +1,23 @@
-let lastHash = "";
-let firstLoad = true;
+import { TABS } from "./config/tabs.js";
+import { getSheet } from "./api/sheetsApi.js";
 
-async function loadAll(){
+async function load(){
 
-  const app =
-    document.getElementById("app");
+  const dados =
+    await Promise.all(
 
-  try{
+      TABS.map(tab =>
+        getSheet(tab.sheet)
+      )
 
-    const results =
-      await Promise.all(
+    );
 
-        TABS.map(
-          t => fetchSheet(t.sheet)
-        )
-      );
+  renderDashboard(dados);
+}
 
-    const hash =
-      JSON.stringify(results);
+load();
 
-    if(
-      !firstLoad &&
-      hash !== lastHash
-    ){
-      playBeep();
-    }
-
-    firstLoad = false;
-    lastHash = hash;
-
-app.innerHTML = "";
+setInterval(
+  load,
+  30000
+);

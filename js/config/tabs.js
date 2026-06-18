@@ -22,11 +22,18 @@ export const TABS = [
     id:"agenda",
     title:"AGENDA",
     sheet:"AGENDA DO DIA"
-  }
+  },
 
-  id:"social",
+  {
+    id:"social",
     title:"AGENDA SERVIÇO SOCIAL",
     sheet:"AGENDA SERVIÇO SOCIAL",
+  },
+
+  {
+    id:"abastecimento",
+    title:"ABASTECIMENTO",
+    sheet:"ABASTECIMENTO"
   }
 
 ];
